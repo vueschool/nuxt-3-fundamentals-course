@@ -1,5 +1,5 @@
 <script setup>
-const query = ref("");
+const query = ref("batman");
 const movies = ref([]);
 async function search() {
   const { Search } = await $fetch(
@@ -7,6 +7,7 @@ async function search() {
   );
   movies.value = Search;
 }
+search();
 </script>
 
 <template>

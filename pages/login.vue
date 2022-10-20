@@ -1,16 +1,11 @@
 <script setup>
-const isLoggedIn = useIsLoggedIn();
+const user = useUser();
 definePageMeta({
   layout: "plain",
 });
-
-function login() {
-  isLoggedIn.value = true;
-  useRouter().push("/");
-}
 </script>
 <template>
-  <form @submit.prevent="login">
+  <form @submit.prevent="user.login">
     <h1>Login</h1>
     <label>
       Username

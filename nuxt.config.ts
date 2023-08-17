@@ -7,6 +7,7 @@ export default defineNuxtConfig({
         autoImports: ["defineStore", "acceptHMRUpdate"],
       },
     ],
+    "@nuxt/image",
   ],
   imports: {
     dirs: ["stores"],

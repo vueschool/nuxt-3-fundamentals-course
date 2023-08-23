@@ -2,9 +2,39 @@
 definePageMeta({
   layout: "plain",
 });
+const modifiers = ref({
+  quality: 100,
+  flip: undefined,
+  flop: undefined,
+  sharpen: undefined,
+  blur: undefined,
+  negate: undefined,
+  tint: undefined,
+  grayscale: undefined,
+});
+
+const crop = ref({
+  left: 0,
+  top: 0,
+  width: 0,
+  height: 0,
+});
+
+const extract = computed(() => {
+  if (crop.value.width && crop.value.height)
+    return `${crop.value.left}_${crop.value.top}_${crop.value.width}_${crop.value.height}`;
+  return;
+});
 </script>
 <template>
-  <NuxtImg src="/cat.jpg" sizes="xs:100vw sm:50vw md:1860px" />
+  <NuxtImg
+    src="/cat.jpg"
+    sizes="xs:100vw sm:50vw md:1860px"
+    :modifiers="{
+      ...modifiers,
+      extract: extract,
+    }"
+  />
 </template>
 
 <style scoped>

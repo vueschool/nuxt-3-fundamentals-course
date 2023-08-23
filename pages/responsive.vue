@@ -27,7 +27,8 @@ const extract = computed(() => {
 });
 </script>
 <template>
-  <NuxtImg
+  <NuxtPicture
+    format="avif"
     src="/cat.jpg"
     sizes="xs:100vw sm:50vw md:1860px"
     :modifiers="{
@@ -38,7 +39,7 @@ const extract = computed(() => {
 </template>
 
 <style scoped>
-img {
+:deep(img) {
   display: block;
   max-width: 100%;
 }

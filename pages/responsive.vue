@@ -14,10 +14,10 @@ const modifiers = ref({
 });
 
 const crop = ref({
-  left: 0,
-  top: 0,
-  width: 0,
-  height: 0,
+  left: 2213,
+  top: 402,
+  width: 800,
+  height: 800,
 });
 
 const extract = computed(() => {
@@ -27,15 +27,13 @@ const extract = computed(() => {
 });
 </script>
 <template>
-  <NuxtPicture
-    format="avif"
-    src="/cat.jpg"
-    sizes="xs:100vw sm:50vw md:1860px"
-    :modifiers="{
-      ...modifiers,
-      extract: extract,
-    }"
-  />
+  <picture>
+    <source
+      media="(max-width:650px)"
+      srcset="/_ipx/extract_2213_402_800_800&w_1860&f_jpg/cat.jpg"
+    />
+    <img src="/_ipx/_/cat.jpg" alt="" />
+  </picture>
 </template>
 
 <style scoped>
